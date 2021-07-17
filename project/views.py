@@ -1,3 +1,4 @@
+from django.core.checks import messages
 from project.forms import ProfileForm, ReviewForm
 from django.shortcuts import render 
 from django.http.response import HttpResponseRedirect
@@ -19,4 +20,15 @@ def post_project(request):
     c_form = ReviewForm()
     form = ProfileForm()
     return render(request , 'profile/index.html' , {"all_images":all_images , "profileform":form , "c_form":c_form , "review":review})
-    
+
+#search project
+def search(request):
+    if 'project' in request.GET and request.GET ["project"]:
+        search_term = request.GET.get("project")
+        search_project = Project.search_project(search_term)
+        message = f"{search_term}"
+        return render(request , 'profile/search.html' , {"message":message, "search_project" :search_project})
+
+    else:
+        message = "You haven't searched for any project" 
+        return render(request , 'profile/search.html')
