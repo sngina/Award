@@ -10,6 +10,7 @@ class Profile(models.Model):
     user = models.OneToOneField(User ,on_delete= models.CASCADE , null=True)
     profile_photo = models.CharField(max_length=30)
     bio = models.CharField(max_length=30)
+    image_photo = models.ImageField(upload_to = 'image/' , null = True)
     
     # search for a profile
 
