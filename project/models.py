@@ -12,7 +12,17 @@ class Profile(models.Model):
     bio = models.CharField(max_length=30)
     image_photo = models.ImageField(upload_to = 'image/' , null = True)
     
-    # search for a profile
+    
+    def __str__(self):
+        return self.user
+
+    def save_profile(self):
+        self.save()
+
+    @classmethod
+    def delete_image(cls ,id):
+        cls.objects.filter(id=id).delete()
+    
 
 class Project(models.Model):
     image_photo = models.ImageField(upload_to = 'image/' , null = True)
