@@ -1,5 +1,5 @@
 from django.core.checks import messages
-from project.forms import ProfileForm, ReviewForm ,ProjectForm
+from project.forms import ProfileForm, ReviewForm ,ProjectForm, UserForm
 from django.shortcuts import render 
 from django.http.response import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render , redirect
@@ -23,7 +23,10 @@ def post_project(request):
     c_form = ReviewForm()
     form = ProjectForm()
     return render(request , 'profile/index.html' , {"all_projects":all_projects , "projectform":form , "c_form":c_form , "review":review})
-
+def userpage(request):
+	user_form = UserForm(instance=request.user)
+	profile_form = ProfileForm(instance=request.user.profile)
+	return render(request,"user.html", context={"user":request.user, "user_form":user_form, "profile_form":profile_form })
 #search project
 def search(request):
     if 'project' in request.GET and request.GET ["project"]:
