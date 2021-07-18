@@ -7,7 +7,7 @@ from django import forms
 class UserForm(forms.ModelForm):
     class Meta:
         model = User
-        fiels = ('username' , 'first_name' , 'last_name' , 'email')
+        fields = ('username' , 'first_name' , 'last_name' , 'email')
 
 
 class ProfileForm(forms.ModelForm):
@@ -18,7 +18,7 @@ class ProfileForm(forms.ModelForm):
 class ProjectForm(forms.ModelForm):
     class Meta:
         model = Project
-        fields('project')
+        fields =('title' ,)
 
 class ReviewForm(forms.ModelForm):
     class Meta:
