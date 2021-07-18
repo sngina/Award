@@ -13,14 +13,14 @@ class UserForm(forms.ModelForm):
 class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ('profile_photo' , 'bio')
+        fields = ('profile_photo' , 'bio' ,'profile_photo')
 
 class ProjectForm(forms.ModelForm):
     class Meta:
         model = Project
-        fields =('title' ,)
+        fields =('title' , 'link' ,'image_photo' , 'description')
 
 class ReviewForm(forms.ModelForm):
     class Meta:
         model = Review
-        fields = ('body' ,)
+        fields = ('body' , 'post' ,'name')
