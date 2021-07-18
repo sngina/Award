@@ -13,7 +13,9 @@ from django.contrib.auth.decorators import login_required
 def post_project(request):
     all_projects = Project.objects.all()
     review = Review.objects.all()
-    if request.method == 'Post':
+    print("niko hapaa juu")
+    if request.method == 'POST':
+        print("digehota")
         form = ProjectForm(request.POST , request.FILES)
         if form.is_valid():
             pform = form.save()
@@ -26,7 +28,7 @@ def post_project(request):
 def userpage(request):
 	user_form = UserForm(instance=request.user)
 	profile_form = ProfileForm(instance=request.user.profile)
-	return render(request,"user.html", context={"user":request.user, "user_form":user_form, "profile_form":profile_form })
+	return render(request,"profile.html", context={"user":request.user, "user_form":user_form, "profile_form":profile_form })
 #search project
 def search(request):
     if 'project' in request.GET and request.GET ["project"]:

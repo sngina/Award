@@ -37,9 +37,9 @@ class Project(models.Model):
     def save_project(self):
         self.save()
         #delete function
-
-    def delete(self):
-        self.delete()
+    @classmethod
+    def delete_project(cls ,id):
+        cls.objects.filter(id = id).delete()
 
     class Meta:
         ordering = ['image_photo']
