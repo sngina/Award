@@ -25,6 +25,7 @@ class Profile(models.Model):
     
 
 class Project(models.Model):
+    user = models.ForeignKey(User ,on_delete= models.CASCADE , null=True)
     image_photo = models.ImageField(upload_to = 'image/' , null = True)
     title = models.CharField(max_length=60)
     description = models.TextField()

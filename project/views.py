@@ -14,9 +14,12 @@ def post_project(request):
     all_projects = Project.objects.all()
     review = Review.objects.all()
     if request.method == 'Post':
-        form = ProjectForm(request.Post , request.FILES)
+        form = ProjectForm(request.POST , request.FILES)
         if form.is_valid():
-            form.save()
+            pform = form.save()
+            pform.user= request.user
+            pform.save()
+            return redirect('homepage')
     c_form = ReviewForm()
     form = ProjectForm()
     return render(request , 'profile/index.html' , {"all_projects":all_projects , "projectform":form , "c_form":c_form , "review":review})
