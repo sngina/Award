@@ -4,7 +4,8 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns=[
-    url(r'^',views.post_project , name= 'project'),
+    url(r'^$',views.post_project , name= 'project'),
+
 
 ]
 

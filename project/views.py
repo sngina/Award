@@ -9,7 +9,7 @@ from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
-@login_required(login_url= '/accounts+/login/')
+@login_required(login_url= '/accounts/login/')
 def post_project(request):
     all_images = Project.objects.all()
     review = Review.objects.all()
