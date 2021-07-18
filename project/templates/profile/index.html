@@ -28,13 +28,13 @@
 </div>
 <div class="container">
     <div class="row">
-        <div class="col-md-7  text-center">
+        <div class="col-sm-8  text-center">
 
             {%for project in  all_projects%}
             <div class="container">
                 <div class="card">
                     <p>{{project.user}}</p>
-                    <img src="{{project.image_photo.url}}" width="60%">
+                    <img src="{{project.image_photo.url}}" width="40%">
                     <p>{{project.title}}</p>
                     <p>{{project.description }}</p>
                     <a href="{{project.link}}">Instagram-clone</a>
@@ -42,6 +42,9 @@
 
             </div>
         </div>
+
+    </div>
+    <div class="col-sm-4">
 
     </div>
 

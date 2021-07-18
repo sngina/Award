@@ -40,3 +40,18 @@ def search(request):
     else:
         message = "You haven't searched for any project" 
         return render(request , 'profile/search.html')
+
+#review functiom
+def review_project(request):
+    if request.method == 'POST':
+        review_form = ReviewForm(data = request.POST)
+        if review_form.is_valid():
+            pro_id = int(request.POST.get('projectid'))
+            project = Project.objects.get(id=pro_id)
+            new_review = review_form.save(review = False)
+            new_review.name = request.user
+            new_review.post = project
+            new_review.save()
+
+        return redirect('homepage')
+
