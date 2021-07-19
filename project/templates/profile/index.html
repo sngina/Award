@@ -34,7 +34,7 @@
             <div class="container">
                 <div class="card">
                     <p>{{project.user}}</p>
-                    <img src="{{project.image_photo.url}}" width="40%">
+                    <img src="{{project.image_photo.url}}" width="30%">
                     <p>{{project.title}}</p>
                     <p>{{project.description }}</p>
                     <a href="{{project.link}}">Instagram-clone</a>
@@ -44,7 +44,7 @@
                     <p>{{reviews.body}}</p>
                     {%endif%}
                     {%endfor%}
-                    <form action="{%url 'review'%}" enctype="multipart/form-data" style="size: 50%;">
+                    <form action="{%url 'review'%}" enctype="multipart/form-data">
                         {%csrf_token%}
                         <input type="hidden"  value='{{new.id}}'>
                         {% bootstrap_form c_form %}
