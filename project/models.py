@@ -53,7 +53,7 @@ class Project(models.Model):
 
 
 class  Review(models.Model):
-    post = models.ForeignKey(Project , on_delete= models.CASCADE , related_name= 'review')
+    post = models.ForeignKey(Project , on_delete= models.CASCADE , related_name= 'reviews')
     body = models.TextField()
     name =  models.ForeignKey(User , on_delete=models.CASCADE , related_name= 'userprofile')
 

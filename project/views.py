@@ -44,11 +44,11 @@ def search(request):
 #review functiom
 def review_project(request):
     if request.method == 'POST':
-        review_form = ReviewForm(data = request.POST)
+        review_form = ReviewForm(request.POST)
         if review_form.is_valid():
             pro_id = int(request.POST.get('projectid'))
             project = Project.objects.get(id=pro_id)
-            new_review = review_form.save(review = False)
+            new_review = review_form.save(commit = False)
             new_review.name = request.user
             new_review.post = project
             new_review.save()

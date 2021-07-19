@@ -6,7 +6,7 @@ from django.conf.urls.static import static
 urlpatterns=[
     url(r'^$',views.post_project , name= 'homepage'),
     url('^user/' , views.userpage , name='username'),
-    url('^review' , views.review_project , name = 'review')
+    url('^review/' , views.review_project , name ='review')
 
 
 ]
