@@ -38,7 +38,21 @@
                     <p>{{project.title}}</p>
                     <p>{{project.description }}</p>
                     <a href="{{project.link}}">Instagram-clone</a>
+                <div>
+                    {%for reviews in review%}
+                    {%if new.id == reviews.post.id%}
+                    <p>{{reviews.body}}</p>
+                    {%endif%}
+                    {%endfor%}
+                    <form action="{%url 'review'%}" enctype="multipart/form-data" style="size: 50%;">
+                        {%csrf_token%}
+                        <input type="hidden"  value='{{new.id}}'>
+                        {% bootstrap_form c_form %}
+                        <input type="submit" class="btn btn-success btn-success" value="Add Review">
+                    </form>
                 </div>
+            </div>
+
 
             </div>
         </div>
