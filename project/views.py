@@ -1,4 +1,5 @@
 from django.core.checks import messages
+from rest_framework import serializers
 from project.forms import ProfileForm, ReviewForm ,ProjectForm, UserForm
 from django.shortcuts import render 
 from django.http.response import HttpResponseRedirect
@@ -6,7 +7,9 @@ from django.shortcuts import get_object_or_404, render , redirect
 from django.http import HttpResponse ,Http404 
 from .models import Project ,Profile ,Review
 from django.contrib.auth.decorators import login_required
-
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from .serializer import ProjectSerializer
 
 # Create your views here.
 @login_required(login_url= '/accounts/login/')
@@ -54,4 +57,11 @@ def review_project(request):
             new_review.save()
 
         return redirect('homepage')
+
+
+class ProjectList(APIView):
+    def get(self , request , format = None):
+        all_merch = Project.objects.all()
+        serializers = ProjectSerializer(all_merch , many = True)
+        return Response(serializers.data)
 
