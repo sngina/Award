@@ -59,3 +59,4 @@ class  Review(models.Model):
 
     def __str__(self):
         return 'Review {} by {}'.format(self.body , self.name)
+
