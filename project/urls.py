@@ -7,7 +7,8 @@ urlpatterns=[
     url(r'^$',views.post_project , name= 'homepage'),
     url('^user/' , views.userpage , name='username'),
     url('^review/' , views.review_project , name ='review'),
-    url(r'^api/project/$', views.ProjectList.as_view())
+    url(r'^api/project/$', views.ProjectList.as_view()),
+    url(r'^api/profile/$' , views.ProfileList.as_view())
 
 ]
 
