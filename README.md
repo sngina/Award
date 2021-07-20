@@ -66,7 +66,7 @@ Django
 
 ## Bugs
 ---
-The like button and the unlike button might not work!
+No bugs currently!
 
 ---
 
